@@ -14,6 +14,7 @@
 #include <2-10.c>
 #include <3-1.c>
 #include <3-2.c>
+#include <3-5.c>
 
 using namespace boost;
 using namespace boost::unit_test;
@@ -227,6 +228,30 @@ BOOST_AUTO_TEST_CASE(question3_2) {
   char s[] = R"(0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM\n\t\v\b\r\f\a)";
   BOOST_CHECK(!strcmp(s, escape(mid, t)));
   BOOST_CHECK(!strcmp(t, deescape(mid, s)));
+}
+
+BOOST_AUTO_TEST_CASE(question3_5) {
+  char s[1000];
+  itob(1673048042, s, 5);
+  BOOST_CHECK_EQUAL(s, "11411300014132");
+  itob(1768090248, s, 35);
+  BOOST_CHECK_EQUAL(s, "XN88Y8");
+  itob(235444195, s, 22);
+  BOOST_CHECK_EQUAL(s, "21F1CKJ");
+  itob(1908414741, s, 21);
+  BOOST_CHECK_EQUAL(s, "1155I119");
+  itob(459539840, s, 15);
+  BOOST_CHECK_EQUAL(s, "2A524E45");
+  itob(123767564, s, 34);
+  BOOST_CHECK_EQUAL(s, "2OKXCG");
+  itob(1039745202, s, 6);
+  BOOST_CHECK_EQUAL(s, "251101203110");
+  itob(1779555985, s, 23);
+  BOOST_CHECK_EQUAL(s, "C0B3JM8");
+  itob(1594605885, s, 2);
+  BOOST_CHECK_EQUAL(s, "1011111000010111100000100111101");
+  itob(2057028991, s, 12);
+  BOOST_CHECK_EQUAL(s, "494A8A367");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
