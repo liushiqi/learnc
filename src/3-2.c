@@ -2,6 +2,9 @@
 // Created by liu on 18-11-11.
 //
 
+#include "3-2.h"
+#include <string.h>
+
 char *escape(char *s, char *t) {
   size_t len = strlen(t);
   int i, j;

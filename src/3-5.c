@@ -2,6 +2,9 @@
 // Created by liu on 18-11-23.
 //
 
+#include "3-5.h"
+#include <string.h>
+
 const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 void reserve(char s[]) {

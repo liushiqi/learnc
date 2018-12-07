@@ -2,6 +2,8 @@
 // Created by liu on 18-11-11.
 //
 
+#include "3-1.h"
+
 int binsearch(int x, int v[], int n) {
   int low = 0, high = n - 1, mid;
   while (low < high) {
