@@ -4,7 +4,7 @@ project(learnc)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
-set(LIB_FILES src/2-6.c src/2-7.c src/2-8.c src/2-10.c src/3-1.c src/3-2.c src/3-5.c src/4-1.c src/4-2.c)
+set(LIB_FILES src/2-6.c src/2-7.c src/2-8.c src/2-10.c src/3-1.c src/3-2.c src/3-5.c src/4-1.c src/4-2.c src/4-3/getop.c src/4-3/getch.c src/4-3/stack.c)
 
 add_library(libraries ${LIB_FILES})
 target_compile_options(libraries PUBLIC -Wall -Wextra)
@@ -19,3 +19,6 @@ if (Boost_FOUND)
     target_include_directories(testclib PUBLIC src)
     target_compile_options(testclib PUBLIC -Wall -Wextra)
 endif ()
+
+add_executable(4-3 src/4-3/main.c)
+target_link_libraries(4-3 libraries)
