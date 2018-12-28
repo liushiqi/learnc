@@ -141,6 +141,7 @@ Temporary Items
 .idea/**/libraries
 
 # CMake
+build/
 cmake-build-debug/
 cmake-build-release/
 
