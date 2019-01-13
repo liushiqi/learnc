@@ -77,10 +77,17 @@
       故$gcd(a^m - 1, a^n - 1) = gcd(a^n - 1, a^{m - n} - 1)$, 该式可看作对$m, n$辗转相减, 故$gcd(a^m - 1, a^n - 1) = gcd(0, a^{gcd(m, n)} - 1) = a^{gcd(m, n)}$。
     \end{proofs}
 
-  \item[4.] \textit{(2分)} 已知 $\left\{F_n\right\}_{n = 1}^{\infty}$是 Fibonacci 数列,证明$\forall m, n \in \mathbb{N},gcd(F_m , F_n) = F_{gcd(m,n)}$。 \\
+  \item[4.] \textit{(2分)} $p$是奇素数,计算$\left(\frac{-3}{p}\right)$。 \\
     \begin{proofs}{解:}
-      由于$F_{m+n} = F_mF_{n + 1} + F_{m + 1} F{n}$, 带入$m = m - n, n = n$, 故$F_m = F_{m - n}F_{n + 1} + F{m - n + 1}F_n$, 设$gcd(F_m , F_n) = i$, $i | F_{m - n}$(由$gcd(F_{n + 1}, F_n) = 1$), 故$i = gcd(F_{m - n}, F_n)$(否则, 若$ki = gcd(F_{m - n}, F_n), k > 1$, $ki | F_m$, 矛盾。 \\
-      故$gcd(F_m , F_n) = gcd(F_{m - n}, F_n)$, 同理可证, $gcd(F_m , F_n) = F_{gcd(m,n)}$。
+      $$\left(\frac{-3}{p}\right) = \left(-1\right)^{\frac{p - 1}{2}}\left(\frac{3}{p}\right) = \left(-1\right)^{(p - 1)^2}\left(\frac{p}{3}\right) = \left(\frac{p}{3}\right)$$
+      \begin{equation*}
+        \left(\frac{-3}{p}\right) = \left\{
+          \begin{aligned}
+            1 \ \ &(3\  |\ p - 1) \\
+            -1\ \ &(3\  \not|\ p - 1)
+          \end{aligned}
+        \right.
+      \end{equation*}
     \end{proofs}
 
   \item[5.] \textit{(1分)} 证明:对于素数$p > 2, \binom{2p}{p} \equiv 2(mod\ p)$ \\
