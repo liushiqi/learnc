@@ -59,34 +59,19 @@
 \end{kaishu}
 
 \begin{enumerate}
-  \item[1.] \textit{(2分)} 证明：正整数p是素数当且仅当
-     $$(p − 1)! \equiv −1 (mod p)$$
+  \item[1.] \textit{(2分)} 证明:正整数p是素数当且仅当
+    $$(p − 1)! \equiv −1 (mod\ p)$$
     \begin{proofs}{解:}
-      由
-      $$T(n) = \frac{1}{n}\sum_{k = 0}^{n - 1}\left(T(k) + T(n - k - 1)\right) + O(n)$$
-      知
-      $$T(n) = \frac{2}{n}\sum_{k = 0}^{n - 1}T(k) + O(n)$$
-      故
-      $$nT(n) = 2 \sum_{k = 0}^{n - 1}T(k) + O(n^2)$$
-      用$T(n)$减去$T(n - 1)$得
-      \begin{equation*}
-        \begin{aligned}
-          nT(n) - (n - 1)T(n - 1)                 & = 2T(n - 1) + O(n) \\
-          nT(n) - (n + 1)T(n - 1)                 & = O(n)             \\
-          \frac{T(n)}{n + 1} - \frac{T(n - 1)}{n} & = O(\frac{1}{n})   \\
-          \frac{T(n)}{n + 1}                      & = O(log(n))        \\
-          T(n)                                    & = O(n \cdot log(n) \\
-        \end{aligned}
-      \end{equation*}
+      必要性:对于素数$p$, 存在集合$\mathbb{S} = \left\{2, 3, 4, \dots, p - 2\right\}$， 有$\forall x \in \mathbb{S}$, $\exists y \in \mathbb{S}, xy \equiv 1 (mod\ p)$。若$\exists y_1, y_2$, $xy_1 \equiv xy_2 \equiv 1 (mod\ p)$, 则$y_1 \equiv y_2 (mod p)$, 矛盾。故$\left(p - 1\right)! \equiv 1(p - 1) \equiv -1 (mod p)$ \\
+      充分性:设$p = ab$, $a | (p - 1)!$, 且$b | (p - 1)!$, 故若$a \neq b$, $p | (p - 1)!$, 矛盾。否则，$p = a^2$, $gcd((p - 1)!, p) \neq 1$, 矛盾, 故$p$为素数。
     \end{proofs}
 
-  \item[2.] \textit{(2分)} 证明:$\forall a, b \in \mathbb{N}, \exists p, q \in \mathbb{Z}, ap + bq = gcd(a, b)$。 \\
+  \item[2.] \textit{(2分)} 证明:若$a, b$是正整数, $p$是素数, 则$\left(\frac{a}{p}\right)\left(\frac{b}{p}\right) = \left(\frac{ab}{p}\right)$ \\
     \begin{proofs}{解:}
-      设$d$为集合$\mathbb{S} = \left\{ax + by | x, y \in\mathbb{Z}, ax + by \geq 0 \right\}$中的最小值$ap + bq$。设$a = dx + r, 0 \leq r < a$, 由$r = a - xd = a - x(ap + bq) = a(1 - xp) - bxq$, 又$r \in \mathbb{S}$, $d$为$\mathbb{S}$中最小正数，故$r = 0$, 故$d | a$, 同理, $d | b$。 \\
-      对$\forall i, i | a \& i | b$, 设$a = mi, b = ni$, $d = ap + bq = i(mp + nq)$, 故$i | k$, 故$k = gcd(a, b)$。
+      由欧拉判别法, $\left(\frac{a}{p}\right) \equiv a^{\frac{p - 1}{2}} (mod\ p)$, 则有$\left(\frac{a}{p}\right)\left(\frac{b}{p}\right) \equiv a^{\frac{p - 1}{2}} b^{\frac{p - 1}{2}} \equiv \left(ab\right)^{\frac{p - 1}{2}} \equiv \left(\frac{ab}{p}\right) (mod\ p)$, 故$\left(\frac{a}{p}\right)\left(\frac{b}{p}\right) = \left(\frac{ab}{p}\right)$
     \end{proofs}
 
-  \item[3.] \textit{(2分)} 证明$\forall a > 1, m, n \in \mathbb{N}, gcd\left(a^m − 1, a^n − 1\right) = a^{gcd(m,n)} − 1$。 \\
+  \item[3.] \textit{(2分)} $m(\geq n + 1)$个球放在n个盒子$B_1, B_2, \dots, B_n$当中。现在把这$m$个球拿出来,重新放入另外$n + 1$个新的盒子$B_1^∗, B_2^∗, \dots, B_{(n+1)}^*$当中,且每个新的盒子中至少有一个球。证明,存在两个球,每个都满足如下性质:其所在的新盒子比其所在的旧盒子放入的球的个数更少。 \\
     \begin{proofs}{解:}
       设$m \geq n$, 有$a^m - 1 = (a^{m - n} - 1)(a^n - 1) + (a^{m - n} - 1) + (a ^ n - 1)$, 设$gcd(a^m - 1, a^n - 1) = i$, $i | a^{m - n} - 1$, 设$gcd(a^n - 1, a^{m - n} - 1) = ki$, 故$ki | a^m - 1$, 故$gcd(a^m - 1, a^n - 1) = ki$, 故$k = 1$。 \\
       故$gcd(a^m - 1, a^n - 1) = gcd(a^n - 1, a^{m - n} - 1)$, 该式可看作对$m, n$辗转相减, 故$gcd(a^m - 1, a^n - 1) = gcd(0, a^{gcd(m, n)} - 1) = a^{gcd(m, n)}$。
@@ -128,26 +113,9 @@
       故$S(m, n + 1) = 4S(m, n) - S(m + 1, n)$, 又$S(m, 0) = \frac{(2m)!}{m!} \in \mathbb{Z}$, 故$\forall m, n, S(m, n) \in \mathbb{Z}$, 故$m!n!(m + n)!|(2m)!(2n)!$。
     \end{proofs}
 
-  \item[8.] 计算下列式子,其中$(\frac{a}{p})$表示 Legendre 符号,即如果$a$是$p$的二次剩余, 则$(\frac{a}{p}) = 1$,如果$a$是$p$的二次非剩余,则$(\frac{a}{p}) = −1$ \\
-    \begin{enumerate}
-      \item[a)] \textit{(1分)} $(\frac{20}{67})$ \\
-        \begin{proofs}{解:}
-          67是素数故$(\frac{20}{67}) \equiv 20^{\frac{67 - 1}{2}} \equiv -1 (mod\ 67)$
-        \end{proofs}
-      \item[b)] \textit{(1分)} $(\frac{14}{73})$ \\
-        \begin{proofs}{解:}
-          73是素数故$(\frac{14}{73}) \equiv 14^{\frac{73 - 1}{2}} \equiv -1 (mod\ 73)$
-        \end{proofs}
-    \end{enumerate}
-
-  \item[9.] \textit{(2分)} $p = 6k + 5(k \in \mathbb{N})$是素数,计算 $(\frac{−3}{p})$。 \\
-    \begin{proofs}{解}
-
-    \end{proofs}
-
-  \item[10.] 将$1 \sim 2n$填入$2 \times n$的杨氏图表(即要求图表中每行每列均单调递增),有多少种不同的方案? \\
+  \item[8.] 设集合$A, B \in \mathbb{Z}$,定义集合$A + B = \left\{a + b|a \in A, b \in B\right\}$。证明:$|A + B| \geq |A| + |B| − 1$ \\
     \begin{proofs}{解:}
-      设有$s(n)$种方案, 左上角必为1, 右下角必为$2n$, 若$2n$的上面为$2n - 1$, 则左面为$2n - 2$, 去掉最后两个, 方法数共为$s(n - 1)$, 若左面为$2n - 1$, 设上面为$b(n \leq b < 2n - 1)$, 将$b + 1$换为$b$, $b + 2$换为$b + 1$ \dots，$b$换为$n - 1$, 化为前一种情况。故$s(n) = s(n - 1) + (n - 1)s(n - 1) = n s(n - 1)$又$s(1) = 1$故$s(n) = n!$。
+      67是素数故$(\frac{20}{67}) \equiv 20^{\frac{67 - 1}{2}} \equiv -1 (mod\ 67)$
     \end{proofs}
 
 \end{enumerate}
